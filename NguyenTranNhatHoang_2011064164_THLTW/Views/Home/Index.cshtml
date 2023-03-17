@@ -1,0 +1,25 @@
+﻿@model IEnumerable<NguyenTranNhatHoang_2011064164_THLTW.Models.Course>
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="course">
+    <ul>
+        @foreach(var course in Model)
+            {
+                <li>
+                    <div class="date">
+                        <div class="month">
+                            @course.DateTime.ToString("MM")
+                        </div>
+                        <div class="day">
+                            @course.DateTime.ToString("dd")
+                        </div>
+                    </div>
+                    <div class="details">
+                        <span class="lecturer">Tên Giảng viên: @course.Lecturer.Name |</span>
+                        <span class="category">Tên Khoá học: @course.Category.Name</span>
+                    </div>
+                </li>
+            }
+    </ul>
+</div>

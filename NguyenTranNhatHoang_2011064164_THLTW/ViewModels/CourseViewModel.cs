@@ -24,5 +24,6 @@ namespace NguyenTranNhatHoang_2011064164_THLTW.ViewModels
         {
             return DateTime.Parse(string.Format("{0} {1}",Date,Time));
         }  
+        
     }
 }

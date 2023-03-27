@@ -1,4 +1,5 @@
 ﻿using NguyenTranNhatHoang_2011064164_THLTW.Models;
+using NguyenTranNhatHoang_2011064164_THLTW.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -21,7 +22,14 @@ namespace NguyenTranNhatHoang_2011064164_THLTW.Controllers
                 .Include(c => c.Lecturer)
                 .Include(c => c.Category)
                 .Where(c => c.DateTime > DateTime.Now);
-            return View(upcommingCourses);
+
+            var viewModel = new CoursesViewModel
+            {
+                UpcommingCourses = upcommingCourses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
+            //return View(upcommingCourses);
         }
 
         public ActionResult About()
